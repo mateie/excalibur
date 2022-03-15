@@ -11,10 +11,5 @@ module.exports = class MessageCreate extends Event {
      * 
      * @param {Message} message 
      */
-    async run(message) {
-        if (message.member.id === '376212120871763980') {
-            message.delete();
-            return message.channel.send({ content: `${message.member} Shut the fuck up` })
-        };
-    }
+    async run(message) { }
 }
