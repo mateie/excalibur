@@ -1,0 +1,130 @@
+{
+	// Place your stunzi workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Command Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "command",
+		"body": [
+			"const Command = require('../../classes/types/Command');",
+			"const { CommandInteraction } = require('discord.js');",
+			"",
+			"module.exports = class ${1:CommandName} extends Command {",
+			"constructor(client, data) {",
+			"super(client, data);",
+			"",
+			"this.data",
+			".setName('${2:commandname}')",
+			".setDescription('${3:commandDescription}');",
+			"}",
+			"",
+			"/**",
+			"*",
+			"* @param {CommandInteraction} interaction",
+			"*/",
+			"async run(interaction) {",
+			"",
+			"}",
+			"}"
+		]
+	},
+	"Event Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "eve",
+		"body": [
+			"const Event = require(`../../../classes/types/Event`);",
+			"",
+			"module.exports = class ${1:EventName} extends Event {",
+			"constructor(client) {",
+			"super(client);",
+			"this.name = '${2:eventName}';",
+			"}",
+			"",
+			"async run() {",
+			"",
+			"}",
+			"}"
+		]
+	},
+	"Music Event Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "musev",
+		"body": [
+			"const MusicEvent = require(`../../classes/types/MusicEvent`);",
+			"",
+			"module.exports = class ${1:EventName} extends MusicEvent {",
+			"constructor(client) {",
+			"super(client);",
+			"this.name = '${2:eventName}';",
+			"}",
+			"",
+			"async run() {",
+			"",
+			"}",
+			"}"
+		]
+	},
+	"Member Menu Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "memenu",
+		"body": [
+			"const MemberMenu = require('../../classes/types/MemberMenu');",
+			"const { ContextMenuInteraction } = require('discord.js');",
+			"",
+			"module.exports = class ${1:MenuName} extends MemberMenu {",
+			"constructor(client, data) {",
+			"super(client, data);",
+			"",
+			"this.data",
+			".setName('${2:menuname}')",
+			"}",
+			"",
+			"/**",
+			"*",
+			"* @param {ContextMenuInteraction} interaction",
+			"*/",
+			"async run(interaction) {",
+			"",
+			"}",
+			"}"
+		]
+	},
+	"Message Menu Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "messmenu",
+		"body": [
+			"const MessageMenu = require('../../classes/types/MessageMenu');",
+			"const { ContextMenuInteraction } = require('discord.js');",
+			"",
+			"module.exports = class ${1:MenuName} extends MessageMenu {",
+			"constructor(client, data) {",
+			"super(client, data);",
+			"",
+			"this.data",
+			".setName('${2:menuname}')",
+			"}",
+			"",
+			"/**",
+			"*",
+			"* @param {ContextMenuInteraction} interaction",
+			"*/",
+			"async run(interaction) {",
+			"",
+			"}",
+			"}"
+		]
+	},
+}
