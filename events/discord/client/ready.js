@@ -24,7 +24,7 @@ module.exports = class Ready extends Event {
 
         this.client.user.setPresence({
             activities: [
-                { name: 'S&B', type: 'LISTENING' }
+                { name: 'The King Arthur', type: 'WATCHING' }
             ],
             status: 'online'
         });

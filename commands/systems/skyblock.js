@@ -33,8 +33,8 @@ module.exports = class SkyblockCommand extends Command {
                 await interaction.deferReply();
                 const item = options.getString('item');
                 const fetchAuctions = await this.client.hypixel.getSkyblockAuctions();
-                const auctions = [];
-                fetchAuctions.auctions.filter(auction => auction.bin && !auction.claimed && auction.item === item).sort(async (prev, next) => {
+                let auctions = [];
+                fetchAuctions.auctions.filter(auction => auction.bin && !auction.claimed && auction.item === 'Enchanted Book' ? auction.itemLoreRaw.includes(item) : auction.item.includes(item)).sort(async (prev, next) => {
                     if (prev.auctioneerUuid === next.auctioneerUuid) {
                         const exists = auctions.find(auc => auc.id === prev.auctioneerUuid && auc.id === next.auctioneerUuid);
                         if (!exists) {
@@ -47,6 +47,10 @@ module.exports = class SkyblockCommand extends Command {
                         }
                     }
                 });
+
+                if (auctions.length < 1) return interaction.editReply({ content: 'Auctions not found' });
+
+                auctions = auctions.sort((a, b) => b.auctions.length - a.auctions.length);
 
                 const promises = auctions.map(async auction => {
                     const player = await this.client.hypixel.getPlayer(auction.id);
